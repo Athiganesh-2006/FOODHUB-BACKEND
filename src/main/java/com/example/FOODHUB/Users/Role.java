@@ -1,4 +1,7 @@
 package com.example.FOODHUB.Users;
 
-public class Role {
+public enum Role {
+    CUSTOMER,
+    SHOP_OWNER,
+    ADMIN
 }
