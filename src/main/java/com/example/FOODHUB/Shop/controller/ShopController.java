@@ -5,6 +5,9 @@ import com.example.FOODHUB.Shop.service.ShopService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @RestController
 @RequestMapping("/api/shops")
@@ -40,4 +43,12 @@ public class ShopController {
         shopService.deleteShop(id);
         return "Shop deleted successfully";
     }
+
+    @PostMapping("/api/user")
+    public String registerUser(@RequestBody String entity) {
+        
+        
+        return entity;
+    }
+    
 }
