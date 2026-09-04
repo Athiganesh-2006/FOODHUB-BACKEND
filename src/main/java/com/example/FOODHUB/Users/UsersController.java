@@ -5,7 +5,6 @@
 
 package com.example.FOODHUB.Users;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping({"/users"})
 public class UsersController {
-    @Autowired
     private final com.example.FOODHUB.Users.UsersService usersService;
 
    public UsersController(com.example.FOODHUB.Users.UsersService usersService) {

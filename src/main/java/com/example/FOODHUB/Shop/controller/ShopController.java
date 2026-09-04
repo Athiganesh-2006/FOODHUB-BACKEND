@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/shops")
+@CrossOrigin(origins = "http://localhost:5173")
 public class ShopController {
 
     private final ShopService shopService;
@@ -44,11 +45,4 @@ public class ShopController {
         return "Shop deleted successfully";
     }
 
-    @PostMapping("/api/user")
-    public String registerUser(@RequestBody String entity) {
-        
-        
-        return entity;
-    }
-    
 }

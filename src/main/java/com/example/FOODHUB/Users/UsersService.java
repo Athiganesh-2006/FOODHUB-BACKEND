@@ -1,9 +1,5 @@
 package com.example.FOODHUB.Users;
 
-import com.example.FOODHUB.Users.Users;
-import com.example.FOODHUB.Users.UsersRepository;
-import org.apache.catalina.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +7,6 @@ import java.util.List;
 @Service
 public class UsersService {
 
-    @Autowired
     private final UsersRepository userRepository;
 
     public UsersService(UsersRepository userRepository) {

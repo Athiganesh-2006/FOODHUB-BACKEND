@@ -1,7 +1,8 @@
 package com.example.FOODHUB.Order;
 
-import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
 @Entity
 @Table(name = "order_items")
 public class OrderItem {
@@ -20,13 +21,16 @@ public class OrderItem {
     @Column(nullable = false)
     private Double price;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id", nullable = false)
     @JsonBackReference
-@ManyToOne
-@JoinColumn(name = "order_id", nullable = false)
-private Order order;
+    private Order order;
 
+    // Constructor
     public OrderItem() {
     }
+
+    // Getters and Setters
 
     public Long getOrderItemId() {
         return orderItemId;

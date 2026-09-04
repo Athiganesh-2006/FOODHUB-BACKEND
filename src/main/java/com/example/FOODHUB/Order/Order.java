@@ -1,11 +1,11 @@
 package com.example.FOODHUB.Order;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "orders")
@@ -13,69 +13,91 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id")
-    private Long orderId;
+    private Long id;
 
-    @Column(name = "cart_id")
-    private Long cartId;
+    @Column(name = "customer_id", nullable = false)
+    private Long customerId;
 
-    @Column(name = "total_amount")
-    private Double totalAmount;
+    @Column(name = "shop_id", nullable = false)
+    private Long shopId;
 
-    @Column(name = "order_status")
-    private String orderStatus;
+    @Column(name = "total_amount", nullable = false)
+    private double totalAmount;
 
-    @Column(name = "order_date")
-    private LocalDateTime orderDate;
-     @JsonManagedReference  
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private OrderStatus status;
+
+    @Column(name = "order_type", nullable = false)
+    private String orderType;
+
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createdAt;
+
     @OneToMany(
             mappedBy = "order",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
+    @JsonManagedReference
     private List<OrderItem> items = new ArrayList<>();
 
+    // Constructor
     public Order() {
     }
 
-    public Long getOrderId() {
-        return orderId;
+    // Getters and Setters
+
+    public Long getId() {
+        return id;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public Long getCartId() {
-        return cartId;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
     }
 
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
+    public Long getShopId() {
+        return shopId;
     }
 
-    public Double getTotalAmount() {
+    public void setShopId(Long shopId) {
+        this.shopId = shopId;
+    }
+
+    public double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(Double totalAmount) {
+    public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
     }
 
-    public String getOrderStatus() {
-        return orderStatus;
+    public OrderStatus getStatus() {
+        return status;
     }
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus;
+    public void setStatus(OrderStatus status) {
+        this.status = status;
     }
 
-    public LocalDateTime getOrderDate() {
-        return orderDate;
+    public String getOrderType() {
+        return orderType;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public List<OrderItem> getItems() {
@@ -84,5 +106,17 @@ public class Order {
 
     public void setItems(List<OrderItem> items) {
         this.items = items;
+    }
+
+    // Add order item
+    public void addItem(OrderItem item) {
+        items.add(item);
+        item.setOrder(this);
+    }
+
+    // Remove order item
+    public void removeItem(OrderItem item) {
+        items.remove(item);
+        item.setOrder(null);
     }
 }
