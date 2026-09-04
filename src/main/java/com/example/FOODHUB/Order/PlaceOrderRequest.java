@@ -12,11 +12,11 @@ public class PlaceOrderRequest {
 
     private List<ItemRequest> items;
 
-    // Constructor
+    
     public PlaceOrderRequest() {
     }
 
-    // Getters and Setters
+    
 
     public Long getCustomerId() {
         return customerId;
@@ -50,7 +50,7 @@ public class PlaceOrderRequest {
         this.items = items;
     }
 
-    // Inner ItemRequest class
+    
     public static class ItemRequest {
 
         private Long foodItemId;

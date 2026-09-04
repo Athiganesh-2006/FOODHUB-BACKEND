@@ -18,10 +18,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    // =========================================================
-    // GET ALL ORDERS
-    // GET http://localhost:8081/api/orders
-    // =========================================================
+  
 
     @GetMapping
     public ResponseEntity<List<Order>> getAllOrders() {
@@ -31,10 +28,7 @@ public class OrderController {
         );
     }
 
-    // =========================================================
-    // PLACE ORDER
-    // POST http://localhost:8081/api/orders
-    // =========================================================
+    
 
     @PostMapping
     public ResponseEntity<Order> placeOrder(
@@ -49,10 +43,7 @@ public class OrderController {
         );
     }
 
-    // =========================================================
-    // GET ORDER BY ID
-    // GET http://localhost:8081/api/orders/1
-    // =========================================================
+    
 
     @GetMapping("/{id}")
     public ResponseEntity<Order> getOrder(
@@ -64,11 +55,7 @@ public class OrderController {
         );
     }
 
-    // =========================================================
-    // GET CUSTOMER ORDERS
-    // GET http://localhost:8081/api/orders/customer/1
-    // =========================================================
-
+   
     @GetMapping("/customer/{customerId}")
     public ResponseEntity<List<Order>> getCustomerOrders(
             @PathVariable Long customerId
@@ -79,10 +66,7 @@ public class OrderController {
         );
     }
 
-    // =========================================================
-    // GET SHOP ORDERS
-    // GET http://localhost:8081/api/orders/shop/1
-    // =========================================================
+    
 
     @GetMapping("/shop/{shopId}")
     public ResponseEntity<List<Order>> getShopOrders(
@@ -94,10 +78,7 @@ public class OrderController {
         );
     }
 
-    // =========================================================
-    // UPDATE ORDER STATUS
-    // PATCH http://localhost:8081/api/orders/1/status
-    // =========================================================
+    
 
     @PatchMapping("/{id}/status")
     public ResponseEntity<Order> updateStatus(
@@ -107,7 +88,7 @@ public class OrderController {
 
         String status = request.get("status");
 
-        // Status missing
+        
         if (status == null || status.isBlank()) {
 
             return ResponseEntity.badRequest().build();

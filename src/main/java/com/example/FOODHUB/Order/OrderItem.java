@@ -26,11 +26,11 @@ public class OrderItem {
     @JsonBackReference
     private Order order;
 
-    // Constructor
+    
     public OrderItem() {
     }
 
-    // Getters and Setters
+   
 
     public Long getOrderItemId() {
         return orderItemId;

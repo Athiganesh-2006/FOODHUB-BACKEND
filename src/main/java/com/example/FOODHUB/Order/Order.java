@@ -42,12 +42,11 @@ public class Order {
     @JsonManagedReference
     private List<OrderItem> items = new ArrayList<>();
 
-    // Constructor
+  
     public Order() {
     }
 
-    // Getters and Setters
-
+    
     public Long getId() {
         return id;
     }
@@ -108,13 +107,13 @@ public class Order {
         this.items = items;
     }
 
-    // Add order item
+    
     public void addItem(OrderItem item) {
         items.add(item);
         item.setOrder(this);
     }
 
-    // Remove order item
+    
     public void removeItem(OrderItem item) {
         items.remove(item);
         item.setOrder(null);
