@@ -15,14 +15,26 @@ public class FoodItemController {
         this.foodItemService = foodItemService;
     }
 
-    @PostMapping
-    public FoodItem addFoodItem(@RequestBody FoodItem foodItem) {
-        return foodItemService.addFoodItem(foodItem);
-    }
 
-    @GetMapping
-    public List<FoodItem> getAllFoodItems() {
-        return foodItemService.getAllFoodItems();
+
+    @PostMapping("/shop/{shopId}")
+    public FoodItem addFoodToShop(
+            @PathVariable Long shopId,
+            @RequestBody FoodItem foodItem) {
+
+        return foodItemService.addFoodToShop(shopId, foodItem);
+    }
+    @GetMapping("/shop/{shopId}")
+    public List<FoodItem> getFoodsByShop(@PathVariable Long shopId) {
+
+        return foodItemService.getFoodsByShop(shopId);
+    }
+    @GetMapping("/shop/{shopId}/search")
+    public List<FoodItem> searchFoodInShop(
+            @PathVariable Long shopId,
+            @RequestParam String name) {
+
+        return foodItemService.searchFoodInShop(shopId, name);
     }
 
     @GetMapping("/{id}")
@@ -58,4 +70,6 @@ public class FoodItemController {
     public void deleteFoodItem(@PathVariable Long id) {
         foodItemService.deleteFoodItem(id);
     }
+
+
 }

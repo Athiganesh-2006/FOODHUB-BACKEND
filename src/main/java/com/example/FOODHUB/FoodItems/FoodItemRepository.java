@@ -1,7 +1,13 @@
 package com.example.FOODHUB.FoodItems;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface FoodItemRepository extends JpaRepository<FoodItem,Long> {
+import java.util.List;
 
+@Repository
+public interface FoodItemRepository extends JpaRepository<FoodItem, Long> {
+
+    List<FoodItem> findByShopId(Long shopId);
+    List<FoodItem> findByShopIdAndNameContainingIgnoreCase(Long shopId, String name);
 }
