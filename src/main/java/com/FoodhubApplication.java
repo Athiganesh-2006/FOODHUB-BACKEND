@@ -1,4 +1,4 @@
-package com.example.FOODHUB;
+package com;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,8 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FoodhubApplication {
 
 	public static void main(String[] args) {
-
-        SpringApplication.run(FoodhubApplication.class, args);
+		SpringApplication.run(FoodhubApplication.class, args);
 	}
 
 }
