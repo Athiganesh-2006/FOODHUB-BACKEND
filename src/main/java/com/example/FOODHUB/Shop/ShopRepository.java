@@ -1,6 +1,5 @@
-package com.example.FOODHUB.Shop.repository;
+package com.example.FOODHUB.Shop;
 
-import com.example.FOODHUB.Shop.entity.Shop;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ShopRepository extends JpaRepository<Shop, Long> {

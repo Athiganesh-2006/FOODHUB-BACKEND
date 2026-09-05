@@ -1,5 +1,4 @@
-package com.example.FOODHUB.FoodItems;
-import com.example.FOODHUB.Shop.entity.Shop;
+package com.example.FOODHUB.Shop;
 
 import jakarta.persistence.*;
 import lombok.*;

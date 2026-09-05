@@ -1,4 +1,4 @@
-package com.example.FOODHUB.FoodItems;
+package com.example.FOODHUB.Shop;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

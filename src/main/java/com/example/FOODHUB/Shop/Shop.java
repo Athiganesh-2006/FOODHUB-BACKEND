@@ -1,10 +1,12 @@
-package com.example.FOODHUB.Shop.entity;
+package com.example.FOODHUB.Shop;
 
 import jakarta.persistence.*;
-
+import lombok.Data;
 
 @Entity
 @Table(name = "shops")
+@Data
+
 public class Shop {
 
     @Id
@@ -21,6 +23,7 @@ public class Shop {
 
     public Shop() {
     }
+
 
     // getters and setters
 }

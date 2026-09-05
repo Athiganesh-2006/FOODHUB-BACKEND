@@ -1,4 +1,4 @@
-package com.example.FOODHUB.FoodItems;
+package com.example.FOODHUB.Shop;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,10 @@ public class FoodItemController {
         this.foodItemService = foodItemService;
     }
 
-
+    @GetMapping
+    public List<FoodItem> getAllFoodItems() {
+        return foodItemService.getAllFoodItems();
+    }
 
     @PostMapping("/shop/{shopId}")
     public FoodItem addFoodToShop(

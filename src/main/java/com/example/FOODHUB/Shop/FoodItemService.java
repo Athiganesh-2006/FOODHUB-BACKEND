@@ -1,6 +1,4 @@
-package com.example.FOODHUB.FoodItems;
-import com.example.FOODHUB.Shop.entity.Shop;
-import com.example.FOODHUB.Shop.repository.ShopRepository;
+package com.example.FOODHUB.Shop;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
