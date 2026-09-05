@@ -1,6 +1,6 @@
-package com.example.FOODHUB.Shop.service;
-import com.example.FOODHUB.Shop.entity.Shop;
-import com.example.FOODHUB.Shop.repository.ShopRepository;
+package com.example.FOODHUB.Shop;
+import com.example.FOODHUB.Users.Role;
+import com.example.FOODHUB.Users.Users;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,12 +11,17 @@ public class ShopServiceImpl implements ShopService {
     private final ShopRepository shopRepository;
 
     public ShopServiceImpl(ShopRepository shopRepository) {
+
         this.shopRepository = shopRepository;
     }
-
     @Override
-    public Shop createShop(Shop shop) {
-        return shopRepository.save(shop);
+    public Shop createShop(Shop shop, Users user) {
+
+        if (user.getRole() == Role.ADMIN) {
+            return shopRepository.save(shop);
+        }
+
+        throw new RuntimeException("Only Admin can create a shop");
     }
 
     @Override
@@ -31,7 +36,13 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
-    public void deleteShop(Long id) {
-        shopRepository.deleteById(id);
+    public void deleteShop(Long id, Users user) {
+
+        if (user.getRole() == Role.ADMIN) {
+            shopRepository.deleteById(id);
+            return;
+        }
+
+        throw new RuntimeException("Only Admin can delete a shop");
     }
 }

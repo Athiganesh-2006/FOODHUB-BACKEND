@@ -1,9 +1,15 @@
-package com.example.FOODHUB.Shop.entity;
+package com.example.FOODHUB.Shop;
 
 import jakarta.persistence.*;
+<<<<<<< HEAD:src/main/java/com/example/FOODHUB/Shop/Shop.java
+import lombok.Data;
+=======
+>>>>>>> a7e9cb6209c035dc130c1492f9350715849b1b81:src/main/java/com/example/FOODHUB/Shop/entity/Shop.java
 
 @Entity
 @Table(name = "shops")
+@Data
+
 public class Shop {
 
     @Id
@@ -21,6 +27,11 @@ public class Shop {
     public Shop() {
     }
 
+<<<<<<< HEAD:src/main/java/com/example/FOODHUB/Shop/Shop.java
+
+    // getters and setters
+}
+=======
     // Getters
 
     public Long getId() {
@@ -65,3 +76,4 @@ public class Shop {
         this.open = open;
     }
 }
+>>>>>>> a7e9cb6209c035dc130c1492f9350715849b1b81:src/main/java/com/example/FOODHUB/Shop/entity/Shop.java

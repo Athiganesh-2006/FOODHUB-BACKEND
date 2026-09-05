@@ -1,5 +1,4 @@
-package com.example.FOODHUB.FoodItems;
-
+package com.example.FOODHUB.Shop;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,19 +7,30 @@ import java.util.List;
 public class FoodItemService {
 
     private final FoodItemRepository foodItemRepository;
+    private final ShopRepository shopRepository;
+    public FoodItemService(
+            FoodItemRepository foodItemRepository,
+            ShopRepository shopRepository) {
 
-    public FoodItemService(FoodItemRepository foodItemRepository) {
         this.foodItemRepository = foodItemRepository;
+        this.shopRepository = shopRepository;
     }
 
-    // Add food item
-    public FoodItem addFoodItem(FoodItem foodItem) {
+    public FoodItem addFoodToShop(Long shopId, FoodItem foodItem) {
+
+        Shop shop = shopRepository.findById(shopId)
+                .orElseThrow(() -> new RuntimeException("Shop not found"));
+
+        foodItem.setShop(shop);
+
         return foodItemRepository.save(foodItem);
     }
-
     // Get all food items
     public List<FoodItem> getAllFoodItems() {
         return foodItemRepository.findAll();
+    }
+    public List<FoodItem> getFoodsByShop(Long shopId) {
+        return foodItemRepository.findByShopId(shopId);
     }
 
     public FoodItem getFoodItemById(Long id) {
@@ -59,6 +69,10 @@ public class FoodItemService {
 
         return  foodItemRepository.save(existingFoodItem);
 
+    }
+
+    public List<FoodItem> searchFoodInShop(Long shopId, String name) {
+        return foodItemRepository.findByShopIdAndNameContainingIgnoreCase(shopId, name);
     }
 
     public void deleteFoodItem(Long id) {

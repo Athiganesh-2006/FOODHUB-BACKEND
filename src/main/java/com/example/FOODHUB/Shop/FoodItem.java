@@ -1,26 +1,26 @@
-package com.example.FOODHUB.FoodItems;
+package com.example.FOODHUB.Shop;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 
 @Entity
-@Getter
-@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
+@Table(name="food_items")
 public class FoodItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long f_id;
 
+
     private String name;
     private String description;
     private double price;
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private Shop shop;
     private String image;
     private boolean available;
 
