@@ -11,19 +11,21 @@ public class PlaceOrderRequest {
     public PlaceOrderRequest() {
     }
 
-    public Long getCartId() {
-        return cartId;
+
+        public Long getCartId () {
+            return cartId;
+        }
+
+        public void setCartId (Long cartId){
+            this.cartId = cartId;
+        }
+
+        public List<OrderItem> getItems () {
+            return items;
+        }
+
+        public void setItems (List < OrderItem > items) {
+            this.items = items;
+        }
     }
 
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
-    }
-
-    public List<OrderItem> getItems() {
-        return items;
-    }
-
-    public void setItems(List<OrderItem> items) {
-        this.items = items;
-    }
-}
