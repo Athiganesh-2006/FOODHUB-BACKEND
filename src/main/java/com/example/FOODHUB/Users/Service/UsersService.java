@@ -1,8 +1,9 @@
-package com.example.FOODHUB.Users;
+package com.example.FOODHUB.Users.Service;
 
-import com.example.FOODHUB.Users.Users;
-import com.example.FOODHUB.Users.UsersRepository;
-import org.apache.catalina.User;
+
+
+import com.example.FOODHUB.Users.Entity.Users;
+import com.example.FOODHUB.Users.Repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

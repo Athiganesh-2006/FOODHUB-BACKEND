@@ -1,9 +1,11 @@
-package com.example.FOODHUB.Users;
+package com.example.FOODHUB.Users.Entity;
+
+import com.example.FOODHUB.Users.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import jakarta.validation.constraints.Email;
@@ -15,7 +17,7 @@ import jakarta.validation.constraints.NotBlank;
 @NoArgsConstructor
 @Table(name="Users")
 @Data
-public class Users {
+public class  Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -42,8 +44,12 @@ public class Users {
     private String company;
 
     @Column(nullable = false)
-    private boolean active = true;
+    private Boolean active = true;
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
 
 }

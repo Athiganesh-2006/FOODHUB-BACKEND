@@ -1,6 +1,6 @@
-package com.example.FOODHUB.Users;
+package com.example.FOODHUB.Users.Repository;
 
-import org.apache.catalina.User;
+import com.example.FOODHUB.Users.Entity.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
