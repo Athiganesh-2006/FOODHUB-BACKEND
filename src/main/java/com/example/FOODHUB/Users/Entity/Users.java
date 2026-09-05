@@ -1,4 +1,6 @@
 package com.example.FOODHUB.Users.Entity;
+
+import com.example.FOODHUB.Users.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

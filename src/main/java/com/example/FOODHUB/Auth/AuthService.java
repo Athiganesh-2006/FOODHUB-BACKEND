@@ -1,6 +1,6 @@
 package com.example.FOODHUB.Auth;
 
-import com.example.FOODHUB.Users.Entity.Role;
+import com.example.FOODHUB.Users.Role;
 import com.example.FOODHUB.Users.Entity.Users;
 import com.example.FOODHUB.Users.Repository.UsersRepository;
 import lombok.RequiredArgsConstructor;

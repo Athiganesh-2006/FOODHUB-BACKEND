@@ -1,4 +1,4 @@
-package com.example.FOODHUB.Users.Entity;
+package com.example.FOODHUB.Users;
 
 public enum Role {
     CUSTOMER,
